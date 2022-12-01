@@ -1,0 +1,23 @@
+<h3>Nuestros productos</h3>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Variedad</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Cantidad</th>
+            <th>Compra</th>
+        </tr>
+        <tr *ngFor="let vino of vinos" [ngClass]="{promocion:vino.promo}">
+            <td>{{vino.marca}}</td>
+            <td>{{vino.variedad}}</td>
+            <td>{{vino.precio | currency}}</td>
+            <td><span class="badge text-bg-warning"*ngIf="vino.stock==0">SIN STOCK</span></td>
+            <td>
+                 <app-input-entero [(cantidad)]="vino.cantidad" [max]="vino.stock" *ngIf="vino.stock"></app-input-entero> 
+            <td>
+                <button type="button" class="btn btn-outline-dark" (click)="agregarCompra(vino)">Comprar</button>
+        </tr>
+    </thead>
+</table>

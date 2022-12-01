@@ -1,0 +1,9 @@
+<h3>Carrito de compras!</h3>
+
+<div class="p-3 border bg-light">
+    <div *ngFor="let vino of ListadoCompra$ | async">
+       <p class="fw-semibold">Marca: {{vino.marca}} Precio: {{vino.precio | currency}}</p> 
+       <p class="fw-semibold">Sub Total: {{vino.precio * vino.cantidad | currency}}</p> 
+    </div>
+</div>
+ 
